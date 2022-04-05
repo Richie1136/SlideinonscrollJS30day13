@@ -19,7 +19,6 @@ const checkSlide = (event) => {
   images.forEach(image => {
     // Halfway through the image
     const slideInAt = (window.scrollY + window.innerHeight) - image.height / 2
-    console.log(slideInAt)
     // bottom of the image
     const imageBottom = image.offsetTop + image.height
     const isHalfShown = slideInAt > image.offsetTop
