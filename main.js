@@ -16,11 +16,20 @@ const debounce = (func, wait = 20, immediate = true) => {
 const images = document.querySelectorAll('.slide-in')
 
 const checkSlide = (event) => {
-  console.count(event)
+  images.forEach(image => {
+    // Halfway through the image
+    const slideInAt = (window.scrollY + window.innerHeight) - image.height / 2
+    console.log(slideInAt)
+    // bottom of the image
+    const imageBottom = image.offsetTop + image.height
+    const isHalfShown = slideInAt > image.offsetTop
+    const isNotScrolledPast = window.scrollY < imageBottom
+    if (isHalfShown && isNotScrolledPast) {
+      image.classList.add('active')
+    } else {
+      image.classList.remove('active')
+    }
+  })
 }
 
 window.addEventListener('scroll', debounce(checkSlide))
-
-// images.forEach(image => {
-//   image.addEventListener('', checkSlide)
-// })
