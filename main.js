@@ -12,3 +12,15 @@ const debounce = (func, wait = 20, immediate = true) => {
     if (callnow) func.apply(context, args)
   }
 }
+
+const images = document.querySelectorAll('.slide-in')
+
+const checkSlide = (event) => {
+  console.count(event)
+}
+
+window.addEventListener('scroll', debounce(checkSlide))
+
+// images.forEach(image => {
+//   image.addEventListener('', checkSlide)
+// })
